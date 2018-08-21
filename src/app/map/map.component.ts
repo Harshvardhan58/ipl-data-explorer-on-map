@@ -37,7 +37,7 @@ export class MapComponent implements AfterViewInit {
     this.map = L.map('leaflet-map-component').setView([12.9715987, 77.59456269999998], 5);
 
 
-    let streets   = L.tileLayer('https://api.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=sk.eyJ1IjoiaGFyc2g1OCIsImEiOiJjamwwdzVlOWgxNW9iM3ZyMGxpZ2x4aHFpIn0.fgbq-H2fSC9Bg4G73B6MeA',{ attribution: '© <a href="https://www.mapbox.com/feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'});
+    let streets   = L.tileLayer('https://api.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token='+<YOUR Mapbox Access Token>,{ attribution: '© <a href="https://www.mapbox.com/feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'});
     this.map.addLayer(streets);
     // var littleton = L.marker([12.9715987, 77.59456269999998],{icon:MyIcon}).bindPopup('bangalore').addTo(this.map),
     // denver    = L.marker([28.7040592, 77.10249019999992],{icon:MyIcon}).bindPopup('delhi').addTo(this.map),
