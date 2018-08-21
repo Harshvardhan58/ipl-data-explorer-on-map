@@ -1,0 +1,37 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css' rel='stylesheet' />
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+<style>
+
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-7">
+                <div id="leaflet-map-component" class="leafletMapComponent"></div>
+        </div>
+        <div class="col-sm-5 tml">
+                
+                <div class="container mt-5 mb-5">
+                        <div class="row">
+                            <div class="col-md-6 offset-md-3">
+                                <label class="col-sm-12" for="sel1">Select Season</label>
+                                <div class="form-group  col-sm-12">
+                                    <select (change)="get_all_dates_season($event)" class="form-control" id="sel1">
+                                        <option disabled value='' selected=''>Select</option>
+                                        <option *ngFor ="let Season of seasons" value="{{Season}}" >{{Season}}</option>
+                                    </select>
+                                </div>
+                                <ul class="timeline">
+                                    <li (click)="get_map_data(d)" *ngFor="let d of dates">
+                                        <p  class="mycustom">{{d}}</p>                                       
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+    </div>
+</div>
+

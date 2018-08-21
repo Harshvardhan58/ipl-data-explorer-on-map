@@ -1,0 +1,103 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+        <div class="card" style="margin-bottom:16px;">
+            <div class="card-header">
+                Sample Data Format
+            </div>
+            <div class="card-body" style="padding: 0px;">
+              <table class="table table-bordered table-hover" style="margin:0px;">
+                <tr>
+                  <th>id</th>
+                  <th>season</th>
+                  <th>city</th>
+                  <th>date</th>
+                  <th>team1</th>
+                  <th>team2</th>
+                  <th>toss winner</th>
+                  <th>toss decision</th>
+                  <th>result</th>
+                  <th>dl applied</th>
+                  <th>winner</th>
+                  <th>win by runs</th>
+                  <th>win by wickets</th>
+                  <th>player of match</th>
+                  <th>venue</th>
+                  <th>umpire1</th>
+                  <th>umpire2</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2017</td>	
+                    <td>Hyderabad</td>	
+                    <td>05-04-2017</td>	
+                    <td>Sunrisers Hyderabad</td>
+                    <td>Royal Challengers Bangalore</td>
+                    <td>Royal Challengers Bangalore</td>
+                    <td>field</td>
+                    <td>normal</td>
+                    <td>0</td>
+                    <td>Sunrisers Hyderabad</td>
+                    <td>35</td>
+                    <td>0</td>
+                    <td>Yuvraj Singh</td>
+                    <td>Rajiv Gandhi International Stadium, Uppal</td>
+                    <td>AY Dandekar</td>
+                    <td>NJ Llong</td>    
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>2017</td>
+                    <td>Pune</td>
+                    <td>06-04-2017</td>
+                    <td>Mumbai Indians</td>
+                    <td>Rising Pune Supergiant</td>
+                    <td>Rising Pune Supergiant</td>	
+                    <td>field</td>
+                    <td>normal</td>
+                    <td>0</td>
+                    <td>Rising Pune Supergiant</td>	
+                    <td>0</td>	
+                    <td>7</td>
+                    <td>SPD Smith</td>
+                    <td>Maharashtra Cricket Association Stadium</td>	
+                    <td>A Nand Kishore</td>	
+                    <td>S Ravi</td>                
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>2017</td>
+                    <td>Rajkot</td>
+                    <td>07-04-2017</td>
+                    <td>Gujarat Lions</td>
+                    <td>Kolkata Knight Riders</td>
+                    <td>Kolkata Knight Riders</td>
+                    <td>field</td>
+                    <td>normal</td>
+                    <td>0</td>
+                    <td>Kolkata Knight Riders</td>
+                    <td>0</td>
+                    <td>10</td>
+                    <td>CA Lynn</td>
+                    <td>Saurashtra Cricket Association Stadium</td>
+                    <td>Nitin Menon</td>
+                    <td>CK Nandan</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+    </div>
+  </div>
+  <form>
+      <div class="custom-file col-sm-10">
+        <input (change)="onFileChange($event)"  accept="csv" type="file" class="custom-file-input" id="customFile">
+        <label id="customFileLabel" class="custom-file-label" for="customFile">{{FileLabel}}</label>
+      </div>
+      <div  class="col-sm-2 pull-right">
+        <button (click)="uploadData()" class="btn btn-primary">Upload</button>
+      </div>
+      <div class="col-sm-10" style="color: #31708f;background-color:#d9edf7;border-color:#d9edf7  ;margin-top:10px; border-radius:5px; "><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Please do not include headers.</div>
+  </form>
+  
+</div>
+
