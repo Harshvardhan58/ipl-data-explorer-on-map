@@ -22,7 +22,9 @@ export class MapComponent implements AfterViewInit {
     this.toastr.setRootViewContainerRef(vcr); 
       this._http.get('./get_all_seasons').subscribe(data=>{
         try{
-          this.seasons = data.json();
+          let d = data.json();
+          d.sort();
+          this.seasons = d;
           console.log(this.seasons);
         }
         catch(e){
@@ -37,7 +39,7 @@ export class MapComponent implements AfterViewInit {
     this.map = L.map('leaflet-map-component').setView([12.9715987, 77.59456269999998], 5);
 
 
-    let streets   = L.tileLayer('https://api.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token='+<YOUR Mapbox Access Token>,{ attribution: '© <a href="https://www.mapbox.com/feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'});
+    let streets   = L.tileLayer('https://api.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=sk.eyJ1IjoiaGFyc2g1OCIsImEiOiJjamwwdzVlOWgxNW9iM3ZyMGxpZ2x4aHFpIn0.fgbq-H2fSC9Bg4G73B6MeA',{ attribution: '© <a href="https://www.mapbox.com/feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'});
     this.map.addLayer(streets);
     // var littleton = L.marker([12.9715987, 77.59456269999998],{icon:MyIcon}).bindPopup('bangalore').addTo(this.map),
     // denver    = L.marker([28.7040592, 77.10249019999992],{icon:MyIcon}).bindPopup('delhi').addTo(this.map),
@@ -47,7 +49,17 @@ export class MapComponent implements AfterViewInit {
   }
   get_all_dates_season(event){
     this._http.get('/get_all_dates_season?season='+event.target.value).toPromise().then(data=>{
-      this.dates=data.json();
+      let d = data.json();
+      d.sort((date1, date2)=> {
+        let tmp = date1.split("-");
+        date1 = [tmp[1],tmp[0],tmp[2]].join("-");
+        tmp = date2.split("-");
+        date2 = [tmp[1],tmp[0],tmp[2]].join("-");
+        if (new Date(date1) < new Date(date2)) return -1;
+        if (new Date(date1) > new Date(date2)) return 1;
+        return 0;
+       } );
+      this.dates=d;
     });
     
   }
