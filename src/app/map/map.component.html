@@ -16,15 +16,15 @@
                 <div class="container mt-5 mb-5">
                         <div class="row">
                             <div class="col-md-6 offset-md-3">
-                                <label class="col-sm-12" for="sel1">Select Season</label>
-                                <div class="form-group  col-sm-12">
-                                    <select (change)="get_all_dates_season($event)" class="form-control" id="sel1">
+                                <label style="margin-left: 15px;" class="col-sm-12" for="sel1">Select Season</label>
+                                <div style="margin-left: 15px;" class="form-group  col-sm-12">
+                                    <select  (change)="get_all_dates_season($event)" class="form-control" id="sel1">
                                         <option disabled value='' selected=''>Select</option>
                                         <option *ngFor ="let Season of seasons" value="{{Season}}" >{{Season}}</option>
                                     </select>
                                 </div>
                                 <ul class="timeline">
-                                    <li (click)="get_map_data(d)" *ngFor="let d of dates">
+                                    <li class="my-custom-active" [ngClass]="{'my-custom-active':curActive==d}" (click)="get_map_data(d)" *ngFor="let d of dates">
                                         <p  class="mycustom">{{d}}</p>                                       
                                     </li>
                                 </ul>
