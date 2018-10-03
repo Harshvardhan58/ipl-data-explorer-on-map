@@ -1,4 +1,4 @@
-# Skylark
+# IPL Data Explorer
 This is a sample project to explore the ipl data on map.
 
 ## Configurations
