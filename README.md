@@ -1,4 +1,4 @@
-# IPL Data Explorer
+# IPL Data Explorer on map
 This is a sample project to explore the ipl data on map.
 
 ## Configurations
